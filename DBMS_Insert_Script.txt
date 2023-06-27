@@ -1,0 +1,581 @@
+set search_path to law_management;
+
+INSERT INTO CLIENT (ClientID, FName, Midint, LName, Gender, DOB, Email, City, State, Pincode, ReferenceName, ReferenceContact)
+VALUES
+(10000001, 'Aarav', 'K', 'Singh', 'M', '1995-06-12', 'aarav.singh@gmail.com', 'Delhi', 'Delhi', 110001, 'Akash', 9656543210),
+(10000002, 'Neha', 'K', 'Sharma', 'F', '1988-03-04', 'neha.sharma@gmail.com', 'Mumbai', 'Maharashtra', 400001, 'Rohan', 4588776655),
+(10000003, 'Amit', 'K', 'Gupta', 'M', '1990-11-20', 'amit.gupta@gmail.com', 'Kolkata', 'West Bengal', 700001, 'Priya', 9238989898),
+(10000004, 'Tanvi', 'R', 'Srivastava', 'F', '1992-07-08', 'tanvi.srivastava@gmail.com', 'Lucknow', 'Uttar Pradesh', 226001, 'Alok', 9845543210),
+(10000005, 'Rajat', 'S', 'Mishra', 'M', '1985-12-31', 'rajat.mishra@gmail.com', 'Chennai', 'Tamil Nadu', 600001, 'Anmol', 9988745655),
+(10000006, 'Kavita', 'P', 'Shinde', 'F', '1993-04-15', 'kavita.shinde@gmail.com', 'Pune', 'Maharashtra', 411001, 'Amit', 9898951898),
+(10000007, 'Akash', 'M', 'Patel', 'M', '1989-09-22', 'akash.patel@gmail.com', 'Ahmedabad', 'Gujarat', 380001, 'Dhruv', 9876541210),
+(10000008, 'Rhea', 'A', 'Joshi', 'F', '1991-02-28', 'rhea.joshi@gmail.com', 'Bengaluru', 'Karnataka', 560001, 'Anmol', 9988745655),
+(10000009, 'Kunal', 'S', 'Mehta', 'M', '1994-05-18', 'kunal.mehta@gmail.com', 'Hyderabad', 'Telangana', 500001, 'Neha', 9898789898),
+(10000010, 'Sneha', 'V', 'Rao', 'F', '1987-08-10', 'sneha.rao@gmail.com', 'Mysore', 'Karnataka', 570001, 'Ankur', 9876542110),
+(10000011, 'Harsh', 'K', 'Singhaniya', 'M', '1975-05-15', 'harsh.singhaniya@gmail.com', 'Chennai', 'Tamil Nadu', 110012, 'Prakash', 9656543210),
+(10000012, 'Swati', 'K', 'Tripathi', 'F', '1989-01-08', 'Swati.Tripathi@gmail.com', 'Rajkot', 'Gujarat', 412001, 'Rohan', 4588145655),
+(10000013, 'Gautam', 'K', 'Radadiya', 'M', '1995-10-20', 'Gautam.Radadiya@gmail.com', 'Rimbik', 'West Bengal', 745001, 'Priya', 9412989898),
+(10000014, 'Tanya', 'R', 'Sheekar', 'F', '1993-11-08', 'Tanya.Sheekar@gmail.com', 'Mathura', 'Uttar Pradesh', 226551, 'Alok', 9453325210),
+(10000015, 'Raj', 'S', 'Mevada', 'M', '1995-11-30', 'Raj.Mevada@gmail.com', 'Manglore', 'Kerela', 604401, 'Vivek', 9984565557),
+(10000016, 'Kavya', 'P', 'Patil', 'F', '1999-05-14', 'Kavya.Patil@gmail.com', 'Nagpur', 'Maharashtra', 478001, 'Aryan', 9897411898),
+(10000017, 'Prithvi', 'M', 'Patel', 'M', '1999-07-21', 'Prithvi.patel@gmail.com', 'Surat', 'Gujarat', 323001, 'Dhruv', 9876453210),
+(10000018, 'Disha', 'K', 'Soni', 'F', '1980-05-12', 'disha.soni@gmail.com', 'Delhi', 'Delhi', 110002, 'Pushpa', 9656123210),
+(10000019, 'Shanaya', 'M', 'Sharma', 'F', '1979-02-04', 'shanaya.sharma@gmail.com', 'Mumbai', 'Maharashtra', 400005, 'Rhitik', 1258776655),
+(10000020, 'Preksha', 'K', 'Gupta', 'F', '1980-11-22', 'preksha.gupta@gmail.com', 'Kolkata', 'West Bengal', 700009, 'Priya', 9238925698),
+(10000021, 'Het', 'R', 'Srivastava', 'M', '1989-07-18', 'het.srivastava@gmail.com', 'Lucknow', 'Uttar Pradesh', 286005, 'Abhimanyu', 9816743210),
+(10000022, 'Hemang', 'S', 'Joshi', 'M', '1985-02-01', 'hemang.joshi@gmail.com', 'Chennai', 'Tamil Nadu', 600004, 'Rena', 9988712555),
+(10000023, 'Atulya', 'P', 'Shetty', 'M', '1995-04-24', 'atulya.shetty@gmail.com', 'Pune', 'Maharashtra', 411005, 'Amit', 9128951898),
+(10000024, 'Utkarsh', 'J', 'Patel', 'M', '1989-11-22', 'utkarsh.patel@gmail.com', 'Ahmedabad', 'Gujarat', 380001, 'Hitarth', 9876546980),
+(10000025, 'Deepika', 'A', 'Sharma', 'F', '1991-02-15', 'deepika.sharma@gmail.com', 'Bengaluru', 'Karnataka', 560002, 'Anmol', 9726745655);
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO ADVOCATE (EnrollmentNo, EnrolledOn, FName, Midint, LName, BarCouncil, Gender, DOB, Email, City, State, Pincode)
+VALUES
+('DL/2165/2001', '2001-02-08', 'Raj', 'K', 'Sharma', 'Bar Council of Delhi', 'M', '1980-01-01', 'rajsharma@gmail.com', 'Delhi', 'Delhi', 110001),
+('MH/5468/2005', '2005-01-11', 'Priya', 'R', 'Singh', 'Bar Council of Mumbai', 'F', '1982-02-02', 'priyasingh@gmail.com', 'Mumbai', 'Maharashtra', 400001),
+('UP/2543/2003', '2003-04-09', 'Alok', 'S', 'Yadav', 'Bar Council of Uttar Pradesh', 'M', '1972-03-03', 'alokyadav@gmail.com', 'Lucknow', 'Uttar Pradesh', 226001),
+('GJ/3165/2003', '2003-09-03', 'Nisha', 'S', 'Savaliya', 'Bar Council of Gujarat', 'F', '1975-04-04', 'nishasavaliya@gmail.com', 'Ahmedabad', 'Gujarat', 380001),
+('PB/5155/2002', '2002-12-27', 'Karan', 'M', 'Verma', 'Bar Council of Punjab and Chandigarh', 'M', '1979-05-05', 'karanverma@gmail.com', 'Chandigarh', 'Punjab', 160001),
+('MP/5484/1985', '1985-12-23', 'Neha', 'A', 'Gupta', 'Bar Council of Madhya Pradesh', 'F', '1965-06-06', 'nehagupta@gmail.com', 'Bhopal', 'Madhya Pradesh', 462001),
+('BH/8882/1987', '1987-11-12', 'Ravi', 'D', 'Kumar', 'Bar Council of Bihar', 'M', '1955-07-07', 'ravikumar@gmail.com', 'Patna', 'Bihar', 800001),
+('GJ/8513/1989', '1989-08-31', 'Sneha', 'N', 'Shah', 'Bar Council of Gujarat', 'F', '1960-08-08', 'snehashah@gmail.com', 'Surat', 'Gujarat', 395001),
+('RJ/6254/1980', '1980-04-21', 'Amit', 'P', 'Chauhan', 'Bar Council of Rajasthan', 'M', '1962-09-09', 'amitchauhan@gmail.com', 'Jaipur', 'Rajasthan', 302001),
+('KL/5132/1995', '1995-03-11', 'Reena', 'V', 'Nair', 'Bar Council of Kerala', 'F', '1965-10-10', 'reenanair@gmail.com', 'Kochi', 'Kerala', 682001),
+('DL/2155/2009', '2009-05-11', 'Ravi', 'K', 'Sharma', 'Bar Council of Delhi', 'M', '1981-11-01', 'ravisharma@gmail.com', 'Delhi', 'Delhi', 110005),
+('MH/7868/2005', '2005-05-06', 'Supriya', 'R', 'Patel', 'Bar Council of Mumbai', 'F', '1982-12-12', 'supriyapatel@gmail.com', 'Pune', 'Maharashtra', 400005),
+('GJ/6921/2007', '2007-12-05', 'Amisha', 'S', 'Choksi', 'Bar Council of Gujarat', 'F', '1975-12-14', 'amishachoksi@gmail.com', 'Vadodara', 'Gujarat', 380006),
+('PB/1582/2004', '2004-10-17', 'Anirudh', 'M', 'Verma', 'Bar Council of Punjab and Chandigarh', 'M', '1980-08-15', 'anirudhverma@gmail.com', 'Amritsar', 'Punjab', 160006),
+('MP/9879/1987', '1987-09-19', 'Anika', 'A', 'Chouhan', 'Bar Council of Madhya Pradesh', 'F', '1965-12-16', 'anikachouhan@gmail.com', 'Indore', 'Madhya Pradesh', 462005),
+('BH/5555/1982', '1982-06-30', 'Ronak', 'D', 'Kumar', 'Bar Council of Bihar', 'M', '1960-12-17', 'ronakkumar@gmail.com', 'Muzaffarpur', 'Bihar', 800005),
+('GJ/4586/1990', '1990-01-25', 'Sunidhi', 'N', 'Rawat', 'Bar Council of Gujarat', 'F', '1960-12-18', 'sunidhirawat@gmail.com', 'Rajkot', 'Gujarat', 395008),
+('RJ/6852/1985', '1985-07-15', 'Arth', 'P', 'Shah', 'Bar Council of Rajasthan', 'M', '1962-05-29', 'arthshah@gmail.com', 'Udaipur', 'Rajasthan', 302002),
+('DL/1254/2002', '2002-05-28', 'Rajesh', 'K', 'Sundar', 'Bar Council of Delhi', 'M', '1982-11-18', 'rajeshsundar@gmail.com', 'Delhi', 'Delhi', 117801),
+('MH/7745/2006', '2006-03-21', 'Shalini', 'R', 'Chandra', 'Bar Council of Mumbai', 'F', '1981-02-12', 'shalinichandra@gmail.com', 'Pune', 'Maharashtra', 478001),
+('UP/3325/2004', '2004-07-19', 'Sanjay', 'S', 'Mathur', 'Bar Council of Uttar Pradesh', 'M', '1979-07-13', 'sanjaymathur@gmail.com', 'Mathura', 'Uttar Pradesh', 226751),
+('GJ/4486/2003', '2003-05-13', 'Ramesh', 'S', 'Patel', 'Bar Council of Gujarat', 'F', '1978-11-24', 'rameshpatel@gmail.com', 'Surat', 'Gujarat', 384501),
+('PB/5511/1995', '1995-10-17', 'Kavan', 'M', 'Tadhani', 'Bar Council of Punjab and Chandigarh', 'M', '1969-05-15', 'kavantadhani@gmail.com', 'Amritsar', 'Punjab', 160102),
+('MP/4447/1989', '1989-11-23', 'Nandini', 'A', 'Chopra', 'Bar Council of Madhya Pradesh', 'F', '1966-09-26', 'nandinichopra@gmail.com', 'Indore', 'Madhya Pradesh', 462041),
+('BH/8896/1999', '1999-12-11', 'Deepak', 'D', 'Kapoor', 'Bar Council of Bihar', 'M', '1965-08-17', 'deepakkapoor@gmail.com', 'Mirzapur', 'Bihar', 804501);
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000001, 9876515210);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000001, 8765515109);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000002, 7654165098);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000002, 6543154987);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000003, 5432154876);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000003, 4321515765);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000004, 3210545654);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000005, 2109554543);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000005, 1098544432);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000006, 9999465999);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000006, 8888852888);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000007, 7777546777);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000007, 6666423666);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000008, 5555235555);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000008, 4444555444);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000008, 3333465333);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000009, 2222253222);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000009, 1113561115);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000009, 9876543211);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000010, 8765432101);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000011, 9874317210);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000011, 8764317109);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000012, 7678367098);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000012, 6544457987);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000013, 5434457876);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000013, 4324127765);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000014, 3214787654);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000015, 2104637543);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000015, 1094457432);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000016, 9994747999);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000016, 8884147888);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000017, 7774787777);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000017, 6664457666);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000017, 5554467555);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000018, 9876526210);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000018, 8791515109);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000019, 9554165098);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000019, 9842154987);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000020, 9792154876);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000020, 9871515765);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000021, 9980545654);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000022, 8159554543);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000022, 8978544432);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000023, 5989465999);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000023, 9918852888);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000024, 9877546777);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000024, 9796423666);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000025, 9995235555);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000025, 8884555444);
+INSERT INTO CLIENTCONTACT (ClientID, MobileNo) VALUES (10000025, 9783465333);
+------------------------------------------------------------------------------------------------------
+
+INSERT INTO ADVOCATECONTACT (EnrollmentNo, MobileNo) VALUES
+    ('DL/2165/2001', 9876513210),
+    ('MH/5468/2005', 7890123456),
+    ('UP/2543/2003', 9988856655),
+    ('GJ/3165/2003', 8889950001),
+    ('PB/5155/2002', 9990418881),
+    ('MP/5484/1985', 7778529990),
+    ('BH/8882/1987', 8894237700),
+    ('GJ/8513/1989', 8767412109),
+    ('RJ/6254/1980', 9017895678),
+    ('KL/5132/1995', 7864532190),
+    ('KL/5132/1995', 8951251076),
+    ('GJ/8513/1989', 8124656789),
+    ('GJ/8513/1989', 7895431230),
+    ('PB/5155/2002', 7418719630),
+    ('MH/5468/2005', 9635447410),
+    ('MH/5468/2005', 9517658520),
+    ('DL/2165/2001', 8529547410),
+    ('RJ/6254/1980', 9871496540),
+    ('RJ/6254/1980', 6547871230),
+    ('DL/1254/2002', 9877813210),
+    ('MH/7745/2006', 7891223456),
+    ('UP/3325/2004', 9983656655),
+    ('GJ/4486/2003', 8886350001),
+    ('PB/5511/1995', 9998518881),
+    ('MP/4447/1989', 7776629990),
+    ('BH/8896/1999', 8892537700),
+    ('GJ/4486/2003', 8769612109),
+    ('UP/3325/2004', 9011495678),
+    ('MP/4447/1989', 7868632190),
+    ('BH/8896/1999', 8956251076),
+    ('GJ/4486/2003', 8122456789),
+    ('GJ/4486/2003', 7894831230),
+    ('PB/5511/1995', 7418619630),
+    ('MH/7745/2006', 9635447410),
+    ('MH/7745/2006', 9514558520),
+    ('DL/1254/2002', 8529547410),
+    ('DL/2155/2009', 9876513210),
+    ('DL/2155/2009', 7890123456),
+    ('DL/2155/2009', 8889950001),
+    ('MH/7868/2005', 9990418881),
+    ('MH/7868/2005', 7778529990),
+    ('GJ/6921/2007', 8894237700),
+    ('PB/1582/2004', 8767412109),
+    ('PB/1582/2004', 9017895678),
+    ('MP/9879/1987', 8124656789),
+    ('MP/9879/1987', 7895431230),
+    ('BH/5555/1982', 9635447410),
+    ('BH/5555/1982', 9517658520),
+    ('GJ/4586/1990', 8529547410),
+    ('GJ/4586/1990', 9871496540),
+    ('RJ/6852/1985', 6547871230);
+-------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC001', 'CNR001');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC002', 'CNR002');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC003', 'CNR003');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC004', 'CNR004');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC005', 'CNR005');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC006', 'CNR006');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC007', 'CNR007');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC008', 'CNR008');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC009', 'CNR009');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC010', 'CNR010');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC011', 'CNR011');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC012', 'CNR012');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC013', 'CNR013');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC014', 'CNR014');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC015', 'CNR015');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC016', 'CNR016');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC017', 'CNR017');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC018', 'CNR018');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC019', 'CNR019');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC020', 'CNR020');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC021', 'CNR021');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC022', 'CNR022');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC023', 'CNR023');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC024', 'CNR024');
+INSERT INTO DOCUMENT (DocId, CNR) VALUES ('DOC025', 'CNR025');
+----------------------------------------------------------------------------------------------------------
+
+INSERT INTO OPPOSITION (OpponentID, Oname, Oadvocate)
+VALUES
+(1001, 'BHEl industries pvt. ltd.', 'Rohit Shetty'),
+(1002, 'Amit Patel', 'Mohan Lal'),
+(1003, 'The State of Rajasthan', 'Anil Kumar'),
+(1004, 'Khanna Association', 'Suresh Mehta'),
+(1005, 'Sudhir Gupta', 'Mahesh Sharma'),
+(1006, 'Shalini Tiwari', 'Rahul Dubey'),
+(1007, 'The State if Gujarat', 'Alok Mishra'),
+(1008, 'Alok Kumar', 'Ankit Singh'),
+(1009, 'Axis Bank', 'Vikas Sharma'),
+(1010, 'Amita Sharma', 'Amit Singh'),
+(1011, 'Adani Industries', 'Ajit Pawar'),
+(1012, 'Nayana Shiroya', 'Sonal Dubay'),
+(1013, 'The State of Telangana', 'Surya Seth'),
+(1014, 'Delloite international', 'Badrinath Trivedi'),
+(1015, 'Rupal Khokhar', 'Mahesh Bansal'),
+(1016, 'Amrita Singh', 'Kamal Khote'),
+(1017, 'The State of Himachal', 'Sahil Yogi'),
+(1018, 'Sunil Shah', 'Rajesh Patel'),
+(1019, 'The United Breweries Ltd.', 'Sudhanshu Singh'),
+(1020, 'Rajesh Kumar', 'Amitabh Singh'),
+(1021, 'Mumbai Municipality', 'Rahul Sharma'),
+(1022, 'Harish Sharma', 'Sanjay Gupta'),
+(1023, 'The State of Madhya Pradesh', 'Deepak Singh'),
+(1024, 'Anil Chaudhary', 'Nitin Kumar'),
+(1025, 'The Indian Railways', 'Ravi Verma');
+----------------------------------------------------------------------------------------------------------------
+
+INSERT INTO "CASE" (CNR, CaseName, CaseType, CaseOpenDate, Status, CaseCloseDate, ClientID, EnrollmentNo, OpponentID)
+VALUES
+('CNR001', 'Arav Singh vs. BHEl industries pvt. ltd.', 'Corporate', '2018-01-27', 'Ongoing', NULL, 10000001, 'GJ/3165/2003', 1001),
+('CNR002', 'Neha Sharma vs. Amit Patel', 'Family', '2009-10-01', 'Ongoing', NULL, 10000002, 'KL/5132/1995', 1002),
+('CNR003', 'Amit Gupta vs. The State of Rajasthan', 'Criminal', '2014-11-29', 'Closed', '2020-05-12', 10000003, 'GJ/3165/2003', 1003),
+('CNR004', 'Tanvi Srivastava vs. Khanna Association', 'Corporate', '2017-04-30', 'Reopened', NULL, 10000004,'UP/2543/2003', 1004),
+('CNR005', 'Rajat Mishra vs. Sudhir Gupta', 'Family', '2012-02-12', 'Ongoing', NULL, 10000005, 'UP/2543/2003', 1005),
+('CNR006', 'Kavita Shinde vs. Shalini Tiwari', 'Family', '2002-06-19', 'Closed','2004-01-12', 10000006,'BH/8882/1987', 1006),
+('CNR007', 'Akash Patel vs. The State of Gujarat', 'Criminal', '2003-12-15', 'Ongoing', NULL, 10000007,  'GJ/8513/1989', 1007),
+('CNR008', 'Rhea Joshi vs. Alok Kumar', 'Criminal', '2021-07-28', 'Ongoing', NULL, 10000008,'UP/2543/2003', 1008),
+('CNR009', 'Kunal Mehta vs. Axis Bank', 'Corporate', '2020-09-23', 'Closed', '2023-02-16', 10000009, 'MH/5468/2005', 1009),
+('CNR010', 'Sneha Rao vs. Amit Singh', 'Criminal', '2013-10-21', 'Ongoing', NULL, 10000010, 'MH/5468/2005', 1010),
+('CNR011', 'Harsh Singhaniya vs. Adani Industries', 'Corporate', '2019-07-27', 'Ongoing', NULL, 10000011, 'DL/1254/2002', 1011),
+('CNR012', 'Swati Tripathi vs. Nayana Shiroya', 'Family', '2010-09-01', 'Ongoing', NULL, 10000012, 'MP/4447/1989', 1012),
+('CNR013', 'Gautam Radadiya vs. The State of Telangana', 'Criminal', '2013-12-29', 'Closed', '2022-05-12', 10000013, 'GJ/4486/2003', 1013),
+('CNR014', 'Tanya Sheekar vs. Delloite international', 'Corporate', '2016-11-30', 'Reopened', NULL, 10000014,'UP/3325/2004', 1014),
+('CNR015', 'Raj Mevada vs. Rupal Khokhar', 'Family', '2011-03-12', 'Ongoing', NULL, 10000015, 'UP/3325/2004', 1015),
+('CNR016', 'Kavya Patil vs. Amrita Singh', 'Family', '2000-07-19', 'Closed','2005-02-12', 10000016,'BH/8896/1999', 1016),
+('CNR017', 'Prithvi Patel vs. The State of Himachal', 'Criminal', '1999-11-16', 'Ongoing', NULL, 10000017,  'GJ/4486/2003', 1017),
+('CNR018', 'Disha Soni vs. Sunil Shah', 'Family', '2018-11-12', 'Ongoing', NULL, 10000018, 'GJ/6921/2007', 1018),
+('CNR019', 'Shanaya Sharma vs. The United Breweries Ltd.', 'Corporate', '2010-11-12', 'Ongoing', NULL, 10000019, 'DL/2155/2009', 1019),
+('CNR020', 'Preksha Gupta vs. Rajesh Kumar', 'Criminal', '2015-01-29', 'Closed', '2021-08-14', 10000020, 'PB/1582/2004', 1020),
+('CNR021', 'Het Srivastava vs. Mumbai Municipality', 'Corporate', '2020-12-31', 'Ongoing', NULL, 10000021,'PB/1582/2004', 1021),
+('CNR022', 'Hemang Joshi vs. Harish Sharma', 'Family', '2016-12-12', 'Ongoing', NULL, 10000022, 'BH/5555/1982', 1022),
+('CNR023', 'Atulya Shetty vs. The State of Madhya Pradesh', 'Criminal', '2009-07-15', 'Closed','2012-11-16', 10000023,'RJ/6852/1985', 1023),
+('CNR024', 'Utkarsh Patel vs. Anil Chaudhary', 'Family', '2015-12-05', 'Closed', '2020-12-01', 10000024,  'PB/1582/2004', 1024),
+('CNR025', 'Deepika Sharma vs. The Indian Railways', 'Criminal', '2019-12-28', 'Closed', '2021-05-07', 10000025,'MP/9879/1987', 1025);
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+INSERT INTO CHARGEDSECTION (CNR, "Section")
+VALUES
+('CNR001', '302'),
+('CNR001', '307'),
+('CNR002', '420'),
+('CNR003', '498A'),
+('CNR003', '406'),
+('CNR004', '354A'),
+('CNR004', '509'),
+('CNR004', '376'),
+('CNR005', '324'),
+('CNR005', '506'),
+('CNR006', '302'),
+('CNR006', '379'),
+('CNR006', '354D'),
+('CNR007', '506'),
+('CNR007', '420'),
+('CNR008', '354A'),
+('CNR008', '323'),
+('CNR008', '504'),
+('CNR009', '506'),
+('CNR009', '377'),
+('CNR009', '307'),
+('CNR009', '420'),
+('CNR010', '406'),
+('CNR010', '419'),
+('CNR011', '307'),
+('CNR011', '412'),
+('CNR012', '420'),
+('CNR013', '497A'),
+('CNR013', '415'),
+('CNR014', '355A'),
+('CNR014', '375'),
+('CNR014', '115'),
+('CNR015', '327'),
+('CNR015', '514'),
+('CNR016', '389'),
+('CNR016', '370'),
+('CNR016', '340D'),
+('CNR017', '530'),
+('CNR017', '445'),
+('CNR018', '512'),
+('CNR018', '598'),
+('CNR019', '125'),
+('CNR020', '486A'),
+('CNR020', '125'),
+('CNR021', '689A'),
+('CNR021', '509'),
+('CNR021', '598'),
+('CNR022', '225'),
+('CNR022', '506'),
+('CNR023', '629'),
+('CNR023', '379'),
+('CNR023', '377A'),
+('CNR024', '506'),
+('CNR024', '256'),
+('CNR025', '354A'),
+('CNR025', '598'),
+('CNR025', '504');
+
+INSERT INTO WITNESS(WitnessID, WitnessName, WitnessAge, WitnessContact, City, "State", Pincode)
+VALUES
+(1012001, 'Suman Kumar', 35, 9812343210, 'Mumbai', 'Maharashtra', 400001),
+(1012002, 'Rajesh Patel', 42, 8714532109, 'Ahmedabad', 'Gujarat', 380001),
+(1012003, 'Sunita Gupta', 28, 7648621098, 'Kolkata', 'West Bengal', 700001),
+(1012004, 'Amit Singh', 45, 6543753987, 'Lucknow', 'Uttar Pradesh', 226001),
+(1012005, 'Preeti Sharma', 50, 5496309876, 'Jaipur', 'Rajasthan', 302001),
+(1012006, 'Aryan Verma', 22, 4321123765, 'Delhi', 'Delhi', 110001),
+(1012007, 'Anjali Singh', 29, 3217897654, 'Chennai', 'Tamil Nadu', 600001),
+(1012008, 'Rahul Mishra', 38, 2106356543, 'Patna', 'Bihar', 800001),
+(1012009, 'Shreya Das', 27, 1098742632, 'Kolkata', 'West Bengal', 700002),
+(1012010, 'Vikram Gupta', 55, 9877953211, 'Mumbai', 'Maharashtra', 400002),
+(1012011, 'Arijit Rathod', 35, 9812322210, 'Mumbai', 'Maharashtra', 407501),
+(1012012, 'Bikram Roy', 42, 8714532709, 'Ahmedabad', 'Gujarat', 384501),
+(1012013, 'Saumya Shah', 28, 7648627098, 'Kolkata', 'West Bengal', 705501),
+(1012014, 'Ishaan Awashthi', 45, 6573753987, 'Lucknow', 'Uttar Pradesh', 244001),
+(1012015, 'Sandhya CHaudhari', 50, 7496309876, 'Jaipur', 'Rajasthan', 302401),
+(1012016, 'Tilak Verma', 22, 4321127765, 'Delhi', 'Delhi', 110701),
+(1012017, 'Aarti Singh', 29, 3217899654, 'Chennai', 'Tamil Nadu', 604001),
+(1012018, 'Amit Sharma', 32, 9876543210, 'Bangalore', 'Karnataka', 560001),
+(1012019, 'Neha Singh', 67, 8765432109, 'Hyderabad', 'Telangana', 500001),
+(1012020, 'Anand Verma', 38, 7654321098, 'Ahmednagar', 'Maharashtra', 414001),
+(1012021, 'Sarika Gupta',55, 6543210987, 'Bhopal', 'Madhya Pradesh', 462001),
+(1012022, 'Nitin Patel', 28, 5432109876, 'Surat', 'Gujarat', 395001),
+(1012023, 'Shreya Kumar', 36, 4321098765, 'Bhubaneswar', 'Odisha', 751001),
+(1012024, 'Ravi Singh', 38, 3210987654, 'Pune', 'Maharashtra', 411001),
+(1012025, 'Riya Sharma', 44, 2109876543, 'Jaipur', 'Rajasthan', 302001);
+
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR001', 1012001);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR002', 1012002);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR003', 1012002);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR007', 1012002);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR003', 1012003);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR004', 1012004);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR005', 1012005);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR009', 1012005);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR006', 1012006);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR007', 1012007);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR008', 1012008);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR002', 1012005);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR002', 1012008);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR009', 1012009);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR004', 1012010);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR010', 1012010);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR011', 1012011);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR012', 1012012);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR013', 1012012);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR017', 1012012);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR013', 1012013);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR014', 1012014);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR015', 1012015);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR016', 1012016);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR012', 1012015);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR018', 1012018);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR019', 1012019);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR020', 1012019);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR024', 1012019);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR020', 1012020);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR021', 1012021);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR022', 1012022);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR023', 1012023);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR024', 1012024);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR025', 1012025);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR019', 1012022);
+INSERT INTO WITNESSED_BY (CNR, WitnessID) VALUES ('CNR019', 1012025);
+
+
+INSERT INTO HEARINGDETAILS(CNR, NextHearingDate, Court, SessionTime)
+VALUES 
+('CNR001', '2018-05-01', 'Supreme Court', '10:00:00'),
+('CNR001', '2019-02-28', 'Supreme Court', '09:00:00'),
+('CNR002', '2009-12-05', 'District Court of Mumbai', '14:00:00'),
+('CNR004', '2018-05-13', 'High Court of Uttar Pradesh', '09:30:00'),
+('CNR004', '2019-06-21', 'High Court of Uttar Pradesh', '09:00:00'),
+('CNR004', '2020-07-27', 'High Court of Uttar Pradesh', '11:30:00'),
+('CNR005', '2004-05-22', 'High Court of Tamil Nadu', '14:30:00'),
+('CNR007', '2021-09-25', 'District Court of Gujarat', '11:30:00'),
+('CNR007', '2021-11-12', 'District Court of Gujarat', '12:30:00'),
+('CNR007', '2022-02-05', 'District Court of Gujarat', '11:45:00'),
+('CNR007', '2022-03-25', 'District Court of Gujarat', '18:30:00'),
+('CNR008', '2023-06-02', 'High Court of Karnataka', '12:30:00'),
+('CNR010', '2023-06-06', 'District Court of Karnataka', '15:00:00'),
+('CNR011', '2019-06-11', 'Supreme Court', '10:00:00'),
+('CNR011', '2020-12-18', 'Supreme Court', '10:00:00'),
+('CNR012', '2010-01-15', 'District Court of Mumbai', '14:00:00'),
+('CNR014', '2019-06-16', 'High Court of Uttar Pradesh', '09:30:00'),
+('CNR014', '2019-10-21', 'High Court of Uttar Pradesh', '09:00:00'),
+('CNR014', '2021-09-27', 'High Court of Uttar Pradesh', '11:30:00'),
+('CNR015', '2005-08-24', 'District of Tamil Nadu', '14:30:00'),
+('CNR017', '2021-04-21', 'District Court of Gujarat', '11:30:00'),
+('CNR017', '2021-12-15', 'District Court of Gujarat', '12:30:00'),
+('CNR017', '2022-05-07', 'District Court of Gujarat', '11:45:00'),
+('CNR018', '2020-02-10', 'District Court of Delhi', '10:00:00'),
+('CNR018', '2020-05-18', 'District Court of Delhi', '11:00:00'),
+('CNR019', '2015-11-12', 'High Court of Mumbai', '09:30:00'),
+('CNR019', '2015-12-12', 'High Court of Mumbai', '09:30:00'),
+('CNR019', '2016-01-12', 'High Court of Mumbai', '09:30:00'),
+('CNR019', '2016-03-01', 'High Court of Mumbai', '09:30:00'),
+('CNR019', '2017-02-25', 'High Court of Mumbai', '09:30:00'),
+('CNR021', '2021-11-28', 'Supreme Court', '14:00:00'),
+('CNR021', '2022-01-12', 'Supreme Court', '10:30:00'),
+('CNR022', '2017-03-20', 'District Court of Tamil Nadu', '12:30:00'),
+('CNR022', '2018-05-15', 'District Court of Tamil Nadu', '13:00:00');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR001', 'Kalyanpuri Police Station', 'Ramesh Singh', '2018-01-30', 'Witness Statements', 'Delhi');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR001', 'Kalyanpuri Police Station', 'Abhijeet Singh', '2018-05-24', 'CCTV Footage', 'Delhi');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR003', 'Chitlapakkam Police Station', 'Suresh Kumar', '2014-12-03', 'Mobile Phone Records', 'West Bengal');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR003', 'Chitlapakkam Police Station', 'Suresh Kumar', '2015-02-05', 'Murder Weapon, Forensic Evidence', 'West Bengal');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR003', 'Chitlapakkam Police Station', 'Suresh Kumar', '2015-05-12', 'Witness Statements', 'West Bengal');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR004', 'Andheri Police Station', 'Neha Shah', '2017-05-07', 'Mobile Phone Records', 'Uttar Pradesh');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR005', 'Indiranagar Police Station', 'Rajesh Prasad', '2012-02-27', 'Video Footage', 'Tamil Nadu');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR005', 'Indiranagar Police Station', 'Rajesh Prasad', '2012-05-12', 'Fingerprints', 'Tamil Nadu');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR006', 'Preet Vihar Police Station', 'Anita Sharma', '2002-06-27', 'Property Papers, Will', 'Maharashtra');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR009', 'Lokhandwala Police Station', 'Siddharth Gupta', '2020-10-30', 'Financial Statements', 'Telangana');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR009', 'Lokhandwala Police Station', 'Siddharth Gupta', '2020-11-15', 'Email Correspondence', 'Telangana');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR010', 'Koramangala Police Station', 'Ravi Kumar', '2013-11-15', 'Whatsapp Messages', 'Karnataka');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR010', 'Koramangala Police Station', 'Ravi Kumar', '2013-12-02', 'Voice Recordings', 'Karnataka');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR011', 'NCR Police Station', 'Shubham Shah', '2019-01-30', 'Witness Statements', 'Delhi');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR011', 'NCR Police Station', 'Daya Gada', '2019-05-24', 'Eye Witness', 'Delhi');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR013', 'Ravatbhata Police Station', 'Suresh Mehar', '2015-12-03', 'Drugs', 'West Bengal');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR013', 'Ravatbhata Police Station', 'Suresh Mehar', '2016-02-05', 'Murder Weapon, DNA Result', 'West Bengal');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR013', 'Ravatbhata Police Station', 'Suresh Mehar', '2016-05-12', 'Witness Statements', 'West Bengal');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR014', 'Ramol Police Station', 'Nilam Rathod', '2018-05-07', 'Mobile Phone Records', 'Uttar Pradesh');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR015', 'unnipakkad Police Station', 'Suryvir Singh', '2013-02-27', 'CCTV', 'Tamil Nadu');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR015', 'unnipakkad Police Station', 'Suryvir Singh', '2013-05-12', 'Forensic Result', 'Tamil Nadu');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR016', 'Bandra East Police Station', 'Anita Sipahi', '2003-06-27', 'Signature Paper', 'Maharashtra');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR012', 'Banjara Hills Police Station', 'Tejpal Kumar', '2021-10-30', 'Bank Transaction Statements', 'Telangana');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR012', 'Banjara Hills Police Station', 'Tejpal Kumar', '2021-11-15', 'Email Correspondence', 'Telangana');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR017', 'Manikode Police Station', 'Surya Bishnoi', '2014-11-15', 'Whatsapp Messages', 'Karnataka');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR017', 'Manikode Police Station', 'Surya Bishnoi', '2014-12-02', 'Voice Recordings', 'Karnataka');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR018', 'Kalyanpuri Police Station', 'Rahul Desai', '2019-05-03', 'Will Documents', 'Delhi');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR019', 'Bandra Police Station', 'Meet Pandey', '2012-06-12', 'DNA Analysis', 'Maharashtra');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR020', 'Chitpur Police Station', 'Priya Sharma', '2016-01-13', 'Fingerprints', 'West Bengal');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR021', 'Lucknow Police Station', 'Himani Srivastava', '2021-02-05', 'Insurance Papers', 'Uttar Pradesh');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR022', 'Chennai Police Station', 'Sanjay Nair', '2017-04-20', 'CCTV Footage', 'Tamil Nadu');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR023', 'Pune Police Station', 'Sanjay Nair', '2010-05-15', 'Mobile Phone Records', 'Maharashtra');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR023', 'Pune Police Station', 'Sanjay Nair', '2010-07-15', 'Murder Weapon', 'Maharashtra');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR024', 'Naranpura Police Station', 'Avinash Desai', '2017-07-10', 'Witness Statements', 'Gujarat');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR025', 'Madiwala Police Station', 'Nisha Singh', '2020-08-05', 'Email Correspondence', 'Karnataka');
+
+INSERT INTO INVESTIGATIONDETAILS (CNR, PoliceStationName, InchargeOfficer, InvestigationDate, Evidence, "State")
+VALUES ('CNR025', 'Madiwala Police Station', 'Nisha Singh', '2020-09-18', 'Voice Recordings', 'Karnataka');
+
+
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (1, 'Justice pooja Sharma');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (2, 'Justice Manoj Kumar');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (3, 'Justice kirit Singh');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (4, 'Justice Sunitha Verma');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (5, 'Justice suresh Gupta');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (6, 'Justice Geeta Kapoor');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (7, 'Justice kunal Patel');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (8, 'Justice Meera Shah');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (9, 'Justice Praveen Singh');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (10, 'Justice Sandhya Reddy');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (11, 'Justice Narsimha Kaze');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (12, 'Justice Sundar Tiwari');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (13, 'Justice Manju Mishra');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (14, 'Justice MAndira mathur');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (15, 'Justice Prathmesh Bansal');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (16, 'Justice Krishna Mehta');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (17, 'Justice Yogi Nakul');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (18, 'Justice pooja Sharma');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (19, 'Justice Manoj Kumar');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (20, 'Justice kirit Singh');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (21, 'Justice Sunitha Verma');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (22, 'Justice suresh Gupta');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (23, 'Justice Geeta Kapoor');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (24, 'Justice kunal Patel');
+INSERT INTO JUDGE (JudgeID, JudgeName) VALUES (25, 'Justice Meera Shah');
+
+
+INSERT INTO JUDGEMENT (CNR, JudgeID, JudgementDate, Verdict, Sentence)
+VALUES ('CNR001', 1, NULL, NULL, NULL),
+       ('CNR002', 2, NULL, NULL, NULL),
+       ('CNR003', 3, '2020-05-12', 'Win', NULL),
+       ('CNR004', 4, '2020-01-16', 'Lose', 'Penalty of 5 lakh'),
+       ('CNR004', 9, NULL, NULL, NULL),
+       ('CNR005', 5, NULL, NULL, NULL),
+       ('CNR006', 6, '2004-01-12', 'Win', 'Ownership of Land given to Kavita Shinde'),
+       ('CNR007', 7, NULL, NULL, NULL),
+       ('CNR008', 8, NULL, NULL, NULL),
+       ('CNR009', 9, '2023-02-16', 'Lose', 'Kunal Mehta has to repay the disputed taxes with interest'),
+       ('CNR010',10, NULL, NULL, NULL),
+       ('CNR011', 11, NULL, NULL, NULL),
+       ('CNR012', 12, NULL, NULL, NULL),
+       ('CNR013', 13, '2021-03-22', 'Win', NULL),
+       ('CNR014', 14, '2021-08-26', 'Lose', 'Penalty of 10 lakh'),
+       ('CNR014', 15, NULL, NULL, NULL),
+       ('CNR015', 15, NULL, NULL, NULL),
+       ('CNR016', 16, '2006-02-12', 'Win', 'Ownership of Land given to Kavya Patil'),
+       ('CNR017', 17, NULL, NULL, NULL),
+       ('CNR018', 18, NULL, NULL, NULL),
+       ('CNR019', 19, NULL, NULL, NULL),
+       ('CNR020', 20, '2021-08-14', 'Win', NULL),
+       ('CNR021', 21, NULL, NULL, NULL),
+       ('CNR022', 23, NULL, NULL, NULL),
+       ('CNR023', 24, '2012-11-16', 'Win', 'State has to grant compensation of 50 lakhs'),
+       ('CNR024', 25, '2020-12-01', 'Lose', 'Property is to be given to Anil Chaudhary'),
+       ('CNR025', 25, '2021-05-07', 'Win', 'Grant of Rs 50 lakh given to Deepika Sharma');
+

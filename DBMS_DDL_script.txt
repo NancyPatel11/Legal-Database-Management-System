@@ -1,0 +1,124 @@
+CREATE SCHEMA LAW_MANAGEMENT;
+
+SET SEARCH_PATH TO LAW_MANAGEMENT;
+
+CREATE TABLE CLIENT (
+	ClientID bigint PRIMARY KEY check (9999999<ClientID and ClientID<100000000),
+  	FName varchar(100) NOT NULL,
+  	Midint varchar(1),
+  	LName varchar(100) NOT NULL,
+  	Gender varchar(1) NOT NULL,
+  	DOB DATE NOT NULL,
+  	Email varchar(100),
+  	City varchar(100) NOT NULL,
+  	State varchar(100) NOT NULL,
+  	Pincode bigint NOT NULL check (Pincode>99999 AND Pincode<1000000),
+  	ReferenceName varchar(100),
+  	ReferenceContact bigint
+);
+
+CREATE TABLE ADVOCATE (
+	EnrollmentNo varchar(50) PRIMARY KEY,
+  	EnrolledOn DATE,
+  	FName varchar(100) NOT NULL,
+  	Midint varchar(1),
+  	LName varchar(100) NOT NULL,
+  	BarCouncil varchar(100),
+  	Gender varchar(1) NOT NULL,
+  	DOB DATE NOT NULL,
+  	Email varchar(100),
+  	City varchar(100) NOT NULL,
+  	State varchar(100) NOT NULL,
+  	Pincode bigint NOT NULL check (Pincode>99999 AND Pincode<1000000)
+);
+
+CREATE TABLE CLIENTCONTACT(
+	ClientID bigint REFERENCES CLIENT(ClientID) check (9999999<ClientID and ClientID<100000000),
+  	MobileNo bigint,
+  	PRIMARY KEY(ClientID, MobileNo)
+);
+
+CREATE TABLE ADVOCATECONTACT(
+	EnrollmentNo varchar(50) REFERENCES ADVOCATE(EnrollmentNo),
+  	MobileNo bigint,
+  	PRIMARY KEY(EnrollmentNo, MobileNo)
+);
+
+CREATE TABLE DOCUMENT(
+	DocId varchar(100),
+  	CNR varchar(16),
+  	PRIMARY KEY(DocId)
+);
+
+CREATE TABLE OPPOSITION(
+	OpponentID bigint PRIMARY KEY,
+  	Oname varchar(100) NOT NULL,
+  	Oadvocate varchar(100) NOT NULL
+);
+
+
+CREATE TABLE "CASE"(
+  	CNR varchar(16) PRIMARY KEY,
+  	CaseName varchar(50) NOT NULL,
+	CaseType varchar(50) NOT NULL,
+  	CaseOpenDate DATE NOT NULL,
+  	Status varchar(20) NOT NULL,
+  	CaseCloseDate DATE,
+  	ClientID bigint NOT NULL REFERENCES CLIENT(ClientID) check (9999999<ClientID and ClientID<100000000),
+  	EnrollmentNo varchar(50) REFERENCES ADVOCATE(EnrollmentNo),
+  	OpponentID bigint NOT NULL REFERENCEs OPPOSITION(OpponentID)
+);
+
+CREATE TABLE CHARGEDSECTION(
+	CNR varchar(16) REFERENCES "CASE"(CNR),
+  	"Section" varchar(20),
+  	PRIMARY KEY(CNR, "Section")
+);
+
+CREATE TABLE WITNESS(
+	WitnessID bigint PRIMARY KEY check (WitnessID>999999 AND WitnessID<10000000),
+  	WitnessName varchar(100) NOT NULL,
+  	WitnessAge bigint check (WitnessAge > 0),
+  	WitnessContact bigint NOT NULL,
+  	City varchar(100),
+  	"State" varchar(100),
+  	Pincode bigint NOT NULL check (Pincode>99999 AND Pincode<1000000)
+);
+
+CREATE TABLE WITNESSED_BY(
+	CNR varchar(16) REFERENCES "CASE"(CNR),
+	WitnessID bigint REFERENCES Witness(WitnessID) check (WitnessID>999999 AND WitnessID<10000000),
+  	PRIMARY KEY(CNR, WitnessID)
+);
+
+CREATE TABLE HEARINGDETAILS(
+	CNR varchar(16) REFERENCES "CASE"(CNR),
+  	NextHearingDate DATE,
+  	Court varchar(100) NOT NULL,
+  	SessionTime TIME,
+  	PRIMARY KEY(CNR, NextHearingDate)
+);
+
+CREATE TABLE INVESTIGATIONDETAILS(
+	CNR varchar(16) REFERENCES "CASE"(CNR),
+  	PoliceStationName varchar(100) NOT NULL,
+  	InchargeOfficer varchar(100) NOT NULL,
+  	InvestigationDate DATE NOT NULL,
+  	Evidence varchar(100),
+  	"State" varchar(100),
+  	PRIMARY KEY(CNR, InvestigationDate)
+);
+
+CREATE TABLE JUDGE(
+  	JudgeID bigint PRIMARY KEY,
+  	JudgeName varchar(100) NOT NULL
+);
+
+CREATE TABLE JUDGEMENT(
+	CNR varchar(16) REFERENCES "CASE"(CNR),
+  	JudgeID bigint REFERENCES JUDGE(JudgeID),
+  	JudgementDate DATE,
+	Verdict varchar(100),
+        Sentence Varchar (255),
+  	PRIMARY KEY(CNR, JudgeID)
+);

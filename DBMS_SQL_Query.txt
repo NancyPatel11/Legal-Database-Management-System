@@ -1,0 +1,250 @@
+1. Display the cases which have been won in last 5 years.
+SELECT * FROM "CASE" natural join judgement
+WHERE Status = 'Closed' AND Verdict = 'Win' AND CaseCloseDate >= CURRENT_DATE - INTERVAL '5 year';
+
+2.Retrieve the details of all advocates who have handled cases in the 'Supreme Court' in the last 10 years.
+SELECT DISTINCT a.*
+FROM ADVOCATE a
+INNER JOIN "CASE" ca ON a.EnrollmentNo = ca.EnrollmentNo natural join hearingdetails ha
+WHERE ha.Court = 'Supreme Court' AND ca.CaseOpenDate >= CURRENT_DATE - INTERVAL '10 year';
+
+
+3.Retrieve the details of all cases that have been closed in the last 5 years and the verdict was 'Lose'.
+SELECT c.*, verdict
+FROM "CASE" as c natural join judgement
+WHERE Status = 'Closed' AND Verdict = 'Lose' AND CaseCloseDate >= CURRENT_DATE - INTERVAL '5 year';
+
+
+4. Retrieve the details of all cases that have at least one charged section related to theft (section 420).
+SELECT *
+FROM "CASE" c
+INNER JOIN CHARGEDSECTION cs ON c.CNR = cs.CNR AND cs."Section" LIKE '%420%';
+
+
+5. Display the number of cases preceded by a judge.
+SELECT j.JudgeName, COUNT(*) AS num_cases
+FROM judgement ju
+JOIN JUDGE j ON ju.JudgeID = j.JudgeID
+GROUP BY j.JudgeName ORDER BY num_cases DESC;
+
+
+6. Display the total number of cases handled by each advocate in descending order.
+SELECT ADVOCATE.EnrollmentNo, ADVOCATE.FName, ADVOCATE.LName, COUNT("CASE".CNR) AS TotalCases
+FROM ADVOCATE
+LEFT JOIN "CASE" ON ADVOCATE.EnrollmentNo = "CASE".EnrollmentNo
+GROUP BY ADVOCATE.EnrollmentNo, ADVOCATE.FName, ADVOCATE.LName 
+ORDER BY TotalCases DESC;
+
+
+7.Display the details of cases handled by a specific advocate along with the total number of hearings for each case.
+SELECT "CASE".CNR, "CASE".CaseName, "CASE".CaseType, "CASE".CaseOpenDate, "CASE".Status, "CASE".CaseCloseDate, 
+CLIENT.FName AS ClientFirstName, CLIENT.LName AS ClientLastName,
+OPPOSITION.Oname AS OpponentName, OPPOSITION.Oadvocate AS OpponentAdvocate,
+CHARGEDSECTION."Section", COUNT(HEARINGDETAILS.NextHearingDate) AS TotalHearings
+FROM "CASE"
+JOIN CLIENT ON "CASE".ClientID = CLIENT.ClientID
+JOIN OPPOSITION ON "CASE".OpponentID = OPPOSITION.OpponentID
+JOIN CHARGEDSECTION ON "CASE".CNR = CHARGEDSECTION.CNR
+LEFT JOIN HEARINGDETAILS ON "CASE".CNR = HEARINGDETAILS.CNR
+WHERE "CASE".EnrollmentNo = 'DL/2155/2009'
+GROUP BY "CASE".CNR, CLIENT.FName, CLIENT.LName, OPPOSITION.Oname, OPPOSITION.Oadvocate, CHARGEDSECTION."Section";
+
+
+8.Retrieve the CNR, case name, case type, and case status of all cases that have at least one charged section that falls under section 302 of the Indian Penal Code.
+SELECT DISTINCT "CASE".CNR, CaseName, CaseType, Status
+FROM "CASE"
+INNER JOIN CHARGEDSECTION ON "CASE".CNR = CHARGEDSECTION.CNR
+WHERE "Section" = '302';
+
+
+9.Retrieve the CNR, case name, case type, case open date, case close date, and the full name of the client for all cases that are closed, ordered by the case close date in descending order.
+SELECT "CASE".CNR, CaseName, CaseType, CaseOpenDate, CaseCloseDate, CONCAT(CLIENT.FName, ' ', CLIENT.LName) AS ClientName
+FROM "CASE"
+INNER JOIN CLIENT ON "CASE".ClientID = CLIENT.ClientID
+WHERE Status = 'Closed'
+ORDER BY CaseCloseDate DESC;
+
+
+10. Find the name and contact information of all the witnesses involved in a particular case (identified by CNR):
+SELECT w.WitnessName, w.WitnessContact, w.City, w."State", w.Pincode 
+FROM WITNESS w 
+JOIN WITNESSED_BY wb ON w.WitnessID = wb.WitnessID 
+JOIN "CASE" c ON wb.CNR = c.CNR 
+WHERE c.CNR = 'CNR004';
+
+
+11.Find the name and enrollment number of advocates who have not yet handled any cases:
+SELECT EnrollmentNo, FName, LName 
+FROM ADVOCATE 
+WHERE EnrollmentNo NOT IN (SELECT DISTINCT EnrollmentNo FROM "CASE");
+
+
+12. Find the total number of cases of each type:
+SELECT CaseType, COUNT(*) AS NumCases 
+FROM "CASE" 
+GROUP BY CaseType ORDER BY NumCases DESC;
+
+
+13.List the details of advocates whose winning chances are above 75%
+SELECT EnrollmentNo, FName, LName, BarCouncil, Gender, DOB, Email, City, State, Pincode
+FROM ADVOCATE
+WHERE EnrollmentNo IN (
+    SELECT EnrollmentNo
+    FROM "CASE" c Natural Join judgement
+    WHERE Verdict='Win'
+    GROUP BY EnrollmentNo
+    HAVING COUNT(*) / (SELECT COUNT(*) FROM "CASE" WHERE EnrollmentNo = c.EnrollmentNo) > 0.75
+);
+
+
+
+
+14. list all the advocates who have fought atleast one case in all types of cases till now
+SELECT * FROM advocate a
+  WHERE NOT EXISTS (
+    SELECT DISTINCT CaseType FROM "CASE" 
+	  EXCEPT
+	 SELECT CaseType FROM "CASE" Natural Join advocate
+    WHERE EnrollmentNo = a.EnrollmentNo
+  );
+
+
+15.List the advocate details that are grouped on the basis of type of the case and also show the number of cases won out of them
+SELECT ADVOCATE.EnrollmentNo, ADVOCATE.FName, ADVOCATE.LName, ADVOCATE.Email, "CASE".CaseType, COUNT("CASE".Status) AS NumCasesWon 
+FROM ADVOCATE 
+INNER JOIN "CASE" ON ADVOCATE.EnrollmentNo = "CASE".EnrollmentNo 
+NATURAL JOIN Judgement 
+WHERE Verdict='Win'
+GROUP BY ADVOCATE.EnrollmentNo, ADVOCATE.FName, ADVOCATE.LName, ADVOCATE.Email, "CASE".CaseType;
+
+
+16. Write a query to show the similarity in the final verdict observed for a particular type of case.
+SELECT CaseType, Verdict, COUNT(*) as NumCases
+FROM "CASE"
+INNER JOIN JUDGEMENT ON "CASE".CNR = JUDGEMENT.CNR
+GROUP BY CaseType, Verdict
+ORDER BY CaseType, Verdict;
+
+
+17.Show the case name, client name, and the number of witnesses for each case, where the number of witnesses is greater than 2.
+SELECT cs.CaseName, c.FName || ' ' || c.LName AS client_name, COUNT(*) AS total_witnesses
+FROM "CASE" cs
+JOIN WITNESSED_BY wb ON cs.CNR = wb.CNR
+JOIN WITNESS w ON wb.WitnessID = w.WitnessID
+JOIN CLIENT c ON cs.ClientID = c.ClientID
+GROUP BY cs.CNR, c.ClientID
+HAVING COUNT(*) > 2;
+
+
+18.To retrieve the list of next hearing date, session time, and the place of court where the case will be fought
+SELECT "CASE".CNR, HEARINGDETAILS.NextHearingDate, HEARINGDETAILS.SessionTime, HEARINGDETAILS.Court
+FROM "CASE"
+INNER JOIN HEARINGDETAILS ON "CASE".CNR = HEARINGDETAILS.CNR;
+
+
+19.To retrieve the details of witnesses who appeared in the proceedings regarding an ongoing case.
+SELECT Witness.WitnessID, Witness.WitnessName, Witness.WitnessAge, Witness.WitnessContact, Witness.City, Witness."State", Witness.Pincode
+FROM WITNESS
+INNER JOIN WITNESSED_BY ON Witness.WitnessID = WITNESSED_BY.WitnessID
+INNER JOIN "CASE" ON WITNESSED_BY.CNR = "CASE".CNR
+WHERE "CASE".Status != 'Closed'
+
+
+20.The advocate seeks access to his prior cases in which his client was subjected to a similar section charge as the ongoing case as well as the related documents.
+SELECT DISTINCT "CASE".CNR, "CASE".CaseName, "CASE".CaseType, "CASE".CaseOpenDate, "CASE".Status, "CASE".CaseCloseDate, "CASE".ClientID
+FROM "CASE"
+INNER JOIN CHARGEDSECTION ON "CASE".CNR = CHARGEDSECTION.CNR
+WHERE CHARGEDSECTION."Section" IN (
+	SELECT CHARGEDSECTION."Section"
+	FROM CHARGEDSECTION
+	WHERE CNR = 'CNR002'
+)
+AND "CASE".CNR != 'CNR002';
+
+SELECT DISTINCT DOCUMENT.DocId, DOCUMENT.CNR
+FROM DOCUMENT
+INNER JOIN CHARGEDSECTION ON DOCUMENT.CNR = CHARGEDSECTION.CNR
+WHERE CHARGEDSECTION."Section" IN (
+	SELECT CHARGEDSECTION."Section"
+	FROM CHARGEDSECTION
+	WHERE CNR = 'CNR002'
+)
+AND DOCUMENT.CNR != 'CNR002';
+
+
+21.List the details of the person who referred the most cases to our law firm.
+SELECT c.ReferenceName, COUNT(*) as NumCasesReferred
+FROM CLIENT c
+JOIN "CASE" cas ON c.ClientID = cas.ClientID
+WHERE c.ReferenceName IS NOT NULL
+GROUP BY c.ReferenceName
+ORDER BY NumCasesReferred DESC
+LIMIT 1;
+
+
+22.Listing all the advocates with their contact details who have won atleast one case in all the types of cases till now. 
+SELECT DISTINCT A.EnrollmentNo, A.FName, A.Midint, A.LName, A.Gender, A.DOB, A.Email, A.City, A.State, A.Pincode, AC.MobileNo
+FROM ADVOCATE A
+INNER JOIN ADVOCATECONTACT AC ON A.EnrollmentNo = AC.EnrollmentNo
+WHERE A.EnrollmentNo IN (
+SELECT C.EnrollmentNo
+FROM "CASE" C
+GROUP BY C.EnrollmentNo
+HAVING COUNT(DISTINCT C.CaseType) = (
+SELECT COUNT(DISTINCT CaseType) FROM "CASE"
+)
+);
+
+
+23. List the CLients who have received a Penalty as punishment.
+SELECT c.*, j.sentence
+FROM CLIENT c
+JOIN "CASE" ca ON c.ClientID = ca.ClientID
+JOIN JUDGEMENT j ON ca.CNR = j.CNR
+WHERE j.sentence LIKE '%Penalty%';
+
+
+24. Find the advocates who have not worked on any cases.
+SELECT *
+FROM ADVOCATE
+WHERE EnrollmentNo NOT IN (
+    SELECT DISTINCT EnrollmentNo
+    FROM "CASE"
+);
+
+
+25. Find the advocates who have worked on the most cases.
+SELECT a.EnrollmentNo, FName, LName, COUNT(*) AS num_cases
+FROM ADVOCATE a
+JOIN "CASE" ON a.EnrollmentNo = "CASE".EnrollmentNo
+GROUP BY a.EnrollmentNo
+ORDER BY num_cases DESC
+LIMIT 1;
+
+
+26. Get the details of all cases which have not yet been closed and have a hearing scheduled in the next 3 months, along with the client and advocate details:
+SELECT "CASE".CNR, "CASE".CaseName, "CASE".CaseType, "CASE".CaseOpenDate, "CASE".Status, "CASE".ClientID, 
+       CLIENT.FName || ' ' || CLIENT.LName as ClientName, ADVOCATE.EnrollmentNo, ADVOCATE.FName || ' ' || ADVOCATE.LName as AdvocateName, 
+       HEARINGDETAILS.NextHearingDate, HEARINGDETAILS.Court, HEARINGDETAILS.SessionTime 
+FROM "CASE" 
+JOIN CLIENT ON "CASE".ClientID = CLIENT.ClientID 
+JOIN ADVOCATE ON "CASE".EnrollmentNo = ADVOCATE.EnrollmentNo 
+JOIN HEARINGDETAILS ON "CASE".CNR = HEARINGDETAILS.CNR 
+WHERE "CASE".Status != 'Closed' AND HEARINGDETAILS.NextHearingDate <= CURRENT_DATE + INTERVAL '3 months' 
+	AND HEARINGDETAILS.NextHearingDate >= CURRENT_DATE - INTERVAL '3 months';
+
+
+27. Show the names of advocates who have not worked on any case after the year 2014.
+SELECT a.FName || ' ' || a.LName AS advocate_name
+FROM ADVOCATE a
+WHERE a.EnrollmentNo NOT IN (
+    SELECT DISTINCT EnrollmentNo
+    FROM "CASE"
+    WHERE CaseOpenDate > '2015-01-01'
+);
+
+
+
+
+
+
